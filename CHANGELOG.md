@@ -24,7 +24,47 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://github.com/atlassian/infrastructure/compare/release-4.9.0...master
+[Unreleased]: https://github.com/atlassian/infrastructure/compare/release-4.12.0...master
+
+### Fixed
+- Fix Docker install failures. Fix [JPERF-446].
+
+[JPERF-446]: https://ecosystem.atlassian.net/browse/JPERF-446
+
+## [4.12.0] - 2019-03-22
+[4.12.0]: https://github.com/atlassian/infrastructure/compare/release-4.11.0...release-4.12.0
+
+### Added
+- Respect `VirtualUserLoad.maxOverallLoad` when spreading load across `MulticastVirtualUsers`. Fix [JPERF-429].
+
+### Fixed
+- Rely on `virtual-users` to slice the load. Transparently support any future sliceable VU load features.
+
+[JPERF-429]: https://ecosystem.atlassian.net/browse/JPERF-429
+
+## [4.11.0] - 2019-03-12
+[4.11.0]: https://github.com/atlassian/infrastructure/compare/release-4.10.0...release-4.11.0
+
+### Added
+- Set GC params based on Java version. Resolve [JPERF-408].
+
+[JPERF-408]: https://ecosystem.atlassian.net/browse/JPERF-408
+
+## [4.10.0] - 2019-03-07
+[4.10.0]: https://github.com/atlassian/infrastructure/compare/release-4.9.0...release-4.10.0
+
+### Added
+- Add `HttpDatasetPackage` constructor which enables performance improvements ([JPERF-412], [JPERF-413]). 
+
+### Deprecated
+- Deprecate `HttpDatasetPackage` three-parameter constructor in favor of two-parameter constructor.
+
+### Fixed
+- Download HTTP resources in parallel instead of on a single thread. Resolve [JPERF-412].
+- Unzip tar.bz2 archive files in parallel. Resolve [JPERF-413].
+
+[JPERF-412]: https://ecosystem.atlassian.net/browse/JPERF-412
+[JPERF-413]: https://ecosystem.atlassian.net/browse/JPERF-413
 
 ## [4.9.0] - 2019-02-28
 [4.9.0]: https://github.com/atlassian/infrastructure/compare/release-4.8.0...release-4.9.0
@@ -32,7 +72,11 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ### Added
 - A way to gather thread dumps over ssh. Resolve [JPERF-405].
 
+### Fixed
+- Download HTTP resources in parallel instead of on a single thread. Resolve [JPERF-412].
+
 [JPERF-405]: https://ecosystem.atlassian.net/browse/JPERF-405
+[JPERF-405]: https://ecosystem.atlassian.net/browse/JPERF-412
 
 ## [4.8.0] - 2019-02-22
 [4.8.0]: https://github.com/atlassian/infrastructure/compare/release-4.7.0...release-4.8.0
